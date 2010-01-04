@@ -1,0 +1,67 @@
+Name:           at-spi2-core
+Version:        0.1.4
+Release:        1%{?dist}
+Summary:        Protocol definitions and daemon for D-Bus at-spi
+
+Group:          System Environment/Libraries
+License:        LGPLv2+
+URL:            http://www.linuxfoundation.org/en/AT-SPI_on_D-Bus
+Source0:        http://download.gnome.org/sources/at-spi2-core/0.1/%{name}-%{version}.tar.bz2
+
+BuildRequires:  dbus-devel
+BuildRequires:  dbus-glib-devel
+BuildRequires:  glib2-devel
+BuildRequires:  gtk2-devel
+BuildRequires:  libXtst-devel
+
+Requires:       dbus
+
+%description
+at-spi allows assistive technologies to access GTK-based
+applications. Essentially it exposes the internals of applications for
+automation, so tools such as screen readers, magnifiers, or even
+scripting interfaces can query and interact with GUI controls.
+
+This version of at-spi is a major break from previous versions.
+It has been completely rewritten to use D-Bus rather than
+ORBIT / CORBA for its transport protocol.
+
+
+%prep
+%setup -q
+
+%build
+%configure
+sed -i 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' libtool
+sed -i 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
+
+make %{?_smp_mflags}
+
+
+%install
+rm -rf $RPM_BUILD_ROOT
+make install DESTDIR=$RPM_BUILD_ROOT
+
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+
+%files
+%defattr(-,root,root,-)
+%doc COPYING AUTHORS README
+%dir %{_sysconfdir}/at-spi2
+%config(noreplace) %{_sysconfdir}/at-spi2/accessibility.conf
+%{_sysconfdir}/xdg/autostart/at-spi-dbus-bus.desktop
+%{_bindir}/at-spi-dbus-bus
+%{_libexecdir}/at-spi2-registryd
+%{_datadir}/at-spi2
+%{_datadir}/dbus-1/services/org.freedesktop.atspi.Registry.service
+
+
+%changelog
+* Tue Dec 22 2009 Matthias Clasen <mlasen@redhat.com> - 0.1.4-1
+- Update to 0.1.4
+
+* Sat Dec  4 2009 Matthias Clasen <mlasen@redhat.com> - 0.1.3-1
+- Initial packaging
