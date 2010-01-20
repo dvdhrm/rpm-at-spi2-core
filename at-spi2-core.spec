@@ -1,6 +1,6 @@
 Name:           at-spi2-core
 Version:        0.1.5
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Protocol definitions and daemon for D-Bus at-spi
 
 Group:          System Environment/Libraries
@@ -31,7 +31,7 @@ ORBIT / CORBA for its transport protocol.
 %setup -q
 
 %build
-%configure
+%configure --with-dbus-daemon=/bin
 sed -i 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' libtool
 sed -i 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
 
@@ -60,6 +60,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Wed Jan 20 2010 Matthias Clasen <mlasen@redhat.com> - 0.1.5-2
+- Specify the right location for the dbus daemon
+
 * Sun Jan 16 2010 Matthias Clasen <mlasen@redhat.com> - 0.1.5-1
 - Update to 0.1.5
 
