@@ -1,6 +1,6 @@
 Name:           at-spi2-core
-Version:        0.1.5
-Release:        2%{?dist}
+Version:        0.1.6
+Release:        1%{?dist}
 Summary:        Protocol definitions and daemon for D-Bus at-spi
 
 Group:          System Environment/Libraries
@@ -13,6 +13,8 @@ BuildRequires:  dbus-glib-devel
 BuildRequires:  glib2-devel
 BuildRequires:  gtk2-devel
 BuildRequires:  libXtst-devel
+BuildRequires:  libXevie-devel
+BuildRequires:  libXext-devel
 
 Requires:       dbus
 
@@ -50,16 +52,19 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root,-)
 %doc COPYING AUTHORS README
-%dir %{_sysconfdir}/at-spi2
-%config(noreplace) %{_sysconfdir}/at-spi2/accessibility.conf
-%{_sysconfdir}/xdg/autostart/at-spi-dbus-bus.desktop
-%{_bindir}/at-spi-dbus-bus
+# %dir %{_sysconfdir}/at-spi2
+# %config(noreplace) %{_sysconfdir}/at-spi2/accessibility.conf
+# %{_sysconfdir}/xdg/autostart/at-spi-dbus-bus.desktop
+# %{_bindir}/at-spi-dbus-bus
 %{_libexecdir}/at-spi2-registryd
 %{_datadir}/at-spi2
 %{_datadir}/dbus-1/services/org.freedesktop.atspi.Registry.service
 
 
 %changelog
+* Wed Feb 10 2010 Tomas Bzatek <tbzatek@redhat.com> - 0.1.6-1
+- Update to 0.1.6
+
 * Wed Jan 20 2010 Matthias Clasen <mlasen@redhat.com> - 0.1.5-2
 - Specify the right location for the dbus daemon
 
