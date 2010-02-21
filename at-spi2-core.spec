@@ -57,8 +57,7 @@ rm -rf $RPM_BUILD_ROOT
 # %{_sysconfdir}/xdg/autostart/at-spi-dbus-bus.desktop
 # %{_bindir}/at-spi-dbus-bus
 %{_libexecdir}/at-spi2-registryd
-%{_datadir}/at-spi2
-%{_datadir}/dbus-1/services/org.freedesktop.atspi.Registry.service
+%{_datadir}/dbus-1/services/org.a11y.atspi.Registry.service
 
 
 %changelog
