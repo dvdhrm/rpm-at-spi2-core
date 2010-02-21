@@ -1,5 +1,5 @@
 Name:           at-spi2-core
-Version:        0.1.6
+Version:        0.1.7
 Release:        1%{?dist}
 Summary:        Protocol definitions and daemon for D-Bus at-spi
 
@@ -62,6 +62,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sat Feb 20 2010 Matthias Clasen <mclasen@redhat.com> - 0.1.7-1
+- Update to 0.1.7
+
 * Wed Feb 10 2010 Tomas Bzatek <tbzatek@redhat.com> - 0.1.6-1
 - Update to 0.1.6
 
