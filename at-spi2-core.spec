@@ -7,6 +7,7 @@ Group:          System Environment/Libraries
 License:        LGPLv2+
 URL:            http://www.linuxfoundation.org/en/AT-SPI_on_D-Bus
 Source0:        http://download.gnome.org/sources/at-spi2-core/0.1/%{name}-%{version}.tar.bz2
+Patch0:         libs.patch
 
 BuildRequires:  dbus-devel
 BuildRequires:  dbus-glib-devel
@@ -15,6 +16,7 @@ BuildRequires:  gtk2-devel
 BuildRequires:  libXtst-devel
 BuildRequires:  libXevie-devel
 BuildRequires:  libXext-devel
+BuildRequires:  autoconf automake libtool
 
 Requires:       dbus
 
@@ -31,6 +33,9 @@ ORBIT / CORBA for its transport protocol.
 
 %prep
 %setup -q
+%patch0 -p1 -b .libs
+
+autoreconf -i -if
 
 %build
 %configure --with-dbus-daemon=/bin
