@@ -1,12 +1,12 @@
 Name:           at-spi2-core
-Version:        0.1.8
+Version:        0.3.1
 Release:        1%{?dist}
 Summary:        Protocol definitions and daemon for D-Bus at-spi
 
 Group:          System Environment/Libraries
 License:        LGPLv2+
 URL:            http://www.linuxfoundation.org/en/AT-SPI_on_D-Bus
-Source0:        http://download.gnome.org/sources/at-spi2-core/0.1/%{name}-%{version}.tar.bz2
+Source0:        http://download.gnome.org/sources/at-spi2-core/0.3/%{name}-%{version}.tar.bz2
 Patch0:         libs.patch
 
 BuildRequires:  dbus-devel
@@ -38,7 +38,7 @@ ORBIT / CORBA for its transport protocol.
 autoreconf -i -if
 
 %build
-%configure --with-dbus-daemon=/bin
+%configure --with-dbus-daemon=/bin --enable-relocate
 sed -i 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' libtool
 sed -i 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
 
@@ -46,12 +46,7 @@ make %{?_smp_mflags}
 
 
 %install
-rm -rf $RPM_BUILD_ROOT
 make install DESTDIR=$RPM_BUILD_ROOT
-
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 
 %files
@@ -66,6 +61,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sat May 15 2010 Matthias Clasen <mclasen@redhat.com> - 0.3.1-1
+- Update to 0.3.1
+
 * Tue Mar 30 2010 Matthias Clasen <mclasen@redhat.com> - 0.1.8-1
 - Update to 0.1.8
 
