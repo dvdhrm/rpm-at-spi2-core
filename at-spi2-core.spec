@@ -7,6 +7,7 @@ Group:          System Environment/Libraries
 License:        LGPLv2+
 URL:            http://www.linuxfoundation.org/en/AT-SPI_on_D-Bus
 Source0:        http://download.gnome.org/sources/at-spi2-core/0.3/%{name}-%{version}.tar.bz2
+# https://bugs.freedesktop.org/show_bug.cgi?id=28300
 Patch0:         libs.patch
 
 BuildRequires:  dbus-devel
