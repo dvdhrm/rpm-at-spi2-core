@@ -1,6 +1,6 @@
 Name:           at-spi2-core
 Version:        0.3.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Protocol definitions and daemon for D-Bus at-spi
 
 Group:          System Environment/Libraries
@@ -39,7 +39,7 @@ ORBIT / CORBA for its transport protocol.
 autoreconf -i -if
 
 %build
-%configure --with-dbus-daemon=/bin --enable-relocate
+%configure --with-dbus-daemon=/bin
 sed -i 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' libtool
 sed -i 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
 
@@ -62,6 +62,9 @@ make install DESTDIR=$RPM_BUILD_ROOT
 
 
 %changelog
+* Tue Jun  1 2010 Matthias Clasen <mclasen@redhat.com> - 0.3.2-2
+- Don't relocate the dbus a11y stack
+
 * Fri May 28 2010 Matthias Clasen <mclasen@redhat.com> - 0.3.2-1
 - Update to 0.3.2
 
