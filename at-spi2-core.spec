@@ -1,14 +1,12 @@
 Name:           at-spi2-core
-Version:        0.3.2
-Release:        2%{?dist}
+Version:        0.3.3
+Release:        1%{?dist}
 Summary:        Protocol definitions and daemon for D-Bus at-spi
 
 Group:          System Environment/Libraries
 License:        LGPLv2+
 URL:            http://www.linuxfoundation.org/en/AT-SPI_on_D-Bus
 Source0:        http://download.gnome.org/sources/at-spi2-core/0.3/%{name}-%{version}.tar.bz2
-# https://bugs.freedesktop.org/show_bug.cgi?id=28300
-Patch0:         libs.patch
 
 BuildRequires:  dbus-devel
 BuildRequires:  dbus-glib-devel
@@ -34,9 +32,6 @@ ORBIT / CORBA for its transport protocol.
 
 %prep
 %setup -q
-%patch0 -p1 -b .libs
-
-autoreconf -i -if
 
 %build
 %configure --with-dbus-daemon=/bin
@@ -62,6 +57,9 @@ make install DESTDIR=$RPM_BUILD_ROOT
 
 
 %changelog
+* Tue Jun  8 2010 Matthias Clasen <mclasen@redhat.com> - 0.3.3-1
+- Update to 0.3.3
+
 * Tue Jun  1 2010 Matthias Clasen <mclasen@redhat.com> - 0.3.2-2
 - Don't relocate the dbus a11y stack
 
