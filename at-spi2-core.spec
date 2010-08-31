@@ -1,5 +1,5 @@
 Name:           at-spi2-core
-Version:        0.3.90
+Version:        0.3.91
 Release:        1%{?dist}
 Summary:        Protocol definitions and daemon for D-Bus at-spi
 
@@ -34,7 +34,7 @@ ORBIT / CORBA for its transport protocol.
 %setup -q
 
 %build
-%configure --with-dbus-daemon=/bin
+%configure --with-dbus-daemon=/bin --disable-relocate
 sed -i 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' libtool
 sed -i 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
 
@@ -54,9 +54,14 @@ make install DESTDIR=$RPM_BUILD_ROOT
 # %{_bindir}/at-spi-dbus-bus
 %{_libexecdir}/at-spi2-registryd
 %{_datadir}/dbus-1/services/org.a11y.atspi.Registry.service
-
+%{_sysconfdir}/at-spi2
+%{_sysconfdir}/xdg/autostart/at-spi-dbus-bus.desktop
+%{_bindir}/at-spi-dbus-bus
 
 %changelog
+* Tue Aug 31 2010 Matthias Clasen <mclasen@redhat.com> - 0.3.91-1
+- Update to 0.3.91
+
 * Wed Aug 18 2010 Matthias Clasen <mclasen@redhat.com> - 0.3.90-1
 - Update to 0.3.90
 
