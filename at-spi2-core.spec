@@ -1,17 +1,16 @@
 Name:           at-spi2-core
-Version:        0.4.0
+Version:        1.91.0
 Release:        1%{?dist}
 Summary:        Protocol definitions and daemon for D-Bus at-spi
 
 Group:          System Environment/Libraries
 License:        LGPLv2+
 URL:            http://www.linuxfoundation.org/en/AT-SPI_on_D-Bus
-Source0:        http://download.gnome.org/sources/at-spi2-core/0.4/%{name}-%{version}.tar.bz2
+Source0:        http://download.gnome.org/sources/at-spi2-core/1.91/%{name}-%{version}.tar.bz2
 
 BuildRequires:  dbus-devel
 BuildRequires:  dbus-glib-devel
 BuildRequires:  glib2-devel
-BuildRequires:  gtk2-devel
 BuildRequires:  libXtst-devel
 BuildRequires:  libXevie-devel
 BuildRequires:  libXext-devel
@@ -59,6 +58,9 @@ make install DESTDIR=$RPM_BUILD_ROOT
 %{_bindir}/at-spi-dbus-bus
 
 %changelog
+* Mon Oct  4 2010 Matthias Clasen <mclasen@redhat.com> - 1.91.0-1
+- Update to 1.91.0
+
 * Wed Sep 29 2010 Matthias Clasen <mclasen@redhat.com> - 0.4.0-1
 - Update to 0.4.0
 
