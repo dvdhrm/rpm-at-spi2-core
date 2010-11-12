@@ -1,5 +1,5 @@
 Name:           at-spi2-core
-Version:        1.91.0
+Version:        1.91.2
 Release:        1%{?dist}
 Summary:        Protocol definitions and daemon for D-Bus at-spi
 
@@ -57,7 +57,11 @@ make install DESTDIR=$RPM_BUILD_ROOT
 %{_sysconfdir}/xdg/autostart/at-spi-dbus-bus.desktop
 %{_bindir}/at-spi-dbus-bus
 
+
 %changelog
+* Thu Nov 11 2010 Matthias Clasen <mclasen@redhat.com> - 1.91.2-1
+- Update 1.91.2
+
 * Mon Oct  4 2010 Matthias Clasen <mclasen@redhat.com> - 1.91.0-1
 - Update to 1.91.0
 
