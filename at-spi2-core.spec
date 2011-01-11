@@ -52,6 +52,7 @@ make %{?_smp_mflags}
 %install
 make install DESTDIR=$RPM_BUILD_ROOT
 
+rm $RPM_BUILD_ROOT%{_libdir}/libatspi.la
 
 %post -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
