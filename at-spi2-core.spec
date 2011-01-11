@@ -15,6 +15,7 @@ BuildRequires:  libXtst-devel
 BuildRequires:  libXevie-devel
 BuildRequires:  libXext-devel
 BuildRequires:  autoconf automake libtool
+BuildRequires:  intltool
 
 Requires:       dbus
 
