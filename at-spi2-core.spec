@@ -29,6 +29,14 @@ This version of at-spi is a major break from previous versions.
 It has been completely rewritten to use D-Bus rather than
 ORBIT / CORBA for its transport protocol.
 
+%package devel
+Summary: Development files and headers for at-spi2-core
+Group: Development/Libraries
+Requires: %{name} = %{version}-%{release}
+
+%description devel
+The at-spi2-core-devel package includes the header files and
+API documentation for libatspi.
 
 %prep
 %setup -q
@@ -45,6 +53,9 @@ make %{?_smp_mflags}
 make install DESTDIR=$RPM_BUILD_ROOT
 
 
+%post -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
+
 %files
 %defattr(-,root,root,-)
 %doc COPYING AUTHORS README
@@ -57,7 +68,11 @@ make install DESTDIR=$RPM_BUILD_ROOT
 %{_sysconfdir}/at-spi2
 %{_sysconfdir}/xdg/autostart/at-spi-dbus-bus.desktop
 %{_bindir}/at-spi-dbus-bus
+%{_libdir}/libatspi.so.*
 
+%files devel
+%{_libdir}/libatspi.so
+%{_datadir}/gtk-doc/html/libatspi
 
 %changelog
 * Mon Jan 10 2011 Matthias Clasen <mclasen@redhat.com> - 1.91.5-1
