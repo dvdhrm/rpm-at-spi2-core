@@ -42,7 +42,7 @@ API documentation for libatspi.
 %setup -q
 
 %build
-%configure --with-dbus-daemon=/bin --disable-relocate
+%configure --with-dbus-daemondir=/bin --disable-relocate
 sed -i 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' libtool
 sed -i 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
 
