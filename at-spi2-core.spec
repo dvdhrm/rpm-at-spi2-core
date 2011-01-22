@@ -1,6 +1,6 @@
 Name:           at-spi2-core
 Version:        1.91.5
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Protocol definitions and daemon for D-Bus at-spi
 
 Group:          System Environment/Libraries
@@ -11,6 +11,7 @@ Source0:        http://download.gnome.org/sources/at-spi2-core/1.91/%{name}-%{ve
 BuildRequires:  dbus-devel
 BuildRequires:  dbus-glib-devel
 BuildRequires:  glib2-devel
+BuildRequires:  gobject-introspection-devel
 BuildRequires:  libXtst-devel
 BuildRequires:  libXevie-devel
 BuildRequires:  libXext-devel
@@ -70,12 +71,17 @@ rm $RPM_BUILD_ROOT%{_libdir}/libatspi.la
 %{_sysconfdir}/xdg/autostart/at-spi-dbus-bus.desktop
 %{_bindir}/at-spi-dbus-bus
 %{_libdir}/libatspi.so.*
+%{_libdir}/girepository-1.0/Atspi-2.0.typelib
 
 %files devel
 %{_libdir}/libatspi.so
 %{_datadir}/gtk-doc/html/libatspi
+%{_datadir}/gir-1.0/Atspi-2.0.gir
 
 %changelog
+* Fri Jan 21 2011 Christopher Aillon <caillon@redhat.com> - 1.91.5-2
+- Add gobject-introspection support
+
 * Mon Jan 10 2011 Matthias Clasen <mclasen@redhat.com> - 1.91.5-1
 - Update to 1.91.5
 
