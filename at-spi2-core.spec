@@ -18,6 +18,10 @@ BuildRequires:  libXext-devel
 BuildRequires:  autoconf automake libtool
 BuildRequires:  intltool
 
+# XXX Ugly Hack
+# Needed for https://bugzilla.gnome.org/show_bug.cgi?id=640303
+BuildRequires: at-spi2-core
+
 Requires:       dbus
 
 %description
