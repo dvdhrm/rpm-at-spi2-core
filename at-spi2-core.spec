@@ -57,12 +57,14 @@ make %{?_smp_mflags}
 %install
 make install DESTDIR=$RPM_BUILD_ROOT
 
+%{find_lang} %{name}
+
 rm $RPM_BUILD_ROOT%{_libdir}/libatspi.la
 
 %post -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
-%files
+%files -f %{name}.lang
 %defattr(-,root,root,-)
 %doc COPYING AUTHORS README
 # %dir %{_sysconfdir}/at-spi2
@@ -81,6 +83,7 @@ rm $RPM_BUILD_ROOT%{_libdir}/libatspi.la
 %{_libdir}/libatspi.so
 %{_datadir}/gtk-doc/html/libatspi
 %{_datadir}/gir-1.0/Atspi-2.0.gir
+%{_includedir}/at-spi-2.0
 
 %changelog
 * Tue Feb  1 2011 Christopher Aillon <caillon@redhat.com> - 1.91.6-1
