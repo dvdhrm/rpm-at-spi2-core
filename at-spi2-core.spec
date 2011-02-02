@@ -1,6 +1,6 @@
 Name:           at-spi2-core
-Version:        1.91.5
-Release:        2%{?dist}
+Version:        1.91.6
+Release:        1%{?dist}
 Summary:        Protocol definitions and daemon for D-Bus at-spi
 
 Group:          System Environment/Libraries
@@ -83,6 +83,9 @@ rm $RPM_BUILD_ROOT%{_libdir}/libatspi.la
 %{_datadir}/gir-1.0/Atspi-2.0.gir
 
 %changelog
+* Tue Feb  1 2011 Christopher Aillon <caillon@redhat.com> - 1.91.6-1
+- Update to 1.91.6
+
 * Fri Jan 21 2011 Christopher Aillon <caillon@redhat.com> - 1.91.5-2
 - Add gobject-introspection support
 
