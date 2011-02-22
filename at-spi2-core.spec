@@ -1,6 +1,6 @@
 Name:           at-spi2-core
-Version:        1.91.6.1
-Release:        2%{?dist}
+Version:        1.91.90
+Release:        1%{?dist}
 Summary:        Protocol definitions and daemon for D-Bus at-spi
 
 Group:          System Environment/Libraries
@@ -47,7 +47,7 @@ API documentation for libatspi.
 %setup -q
 
 %build
-%configure --with-dbus-daemondir=/bin --disable-relocate
+%configure --with-dbus-daemondir=/bin
 sed -i 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' libtool
 sed -i 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
 
@@ -86,6 +86,9 @@ rm $RPM_BUILD_ROOT%{_libdir}/libatspi.la
 %{_includedir}/at-spi-2.0
 
 %changelog
+* Tue Feb 22 2011 Matthias Clasen <mclasen@redhat.com> - 1.91.90-1
+- Update to 1.91.90
+
 * Mon Feb 07 2011 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.91.6.1-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_15_Mass_Rebuild
 
