@@ -1,15 +1,12 @@
 Name:           at-spi2-core
-Version:        1.91.91
-Release:        2%{?dist}
+Version:        1.91.92
+Release:        1%{?dist}
 Summary:        Protocol definitions and daemon for D-Bus at-spi
 
 Group:          System Environment/Libraries
 License:        LGPLv2+
 URL:            http://www.linuxfoundation.org/en/AT-SPI_on_D-Bus
 Source0:        http://download.gnome.org/sources/at-spi2-core/1.91/%{name}-%{version}.tar.bz2
-
-# upstream fix
-Patch0:         at-spi2-core-crash-on-exit.patch
 
 BuildRequires:  dbus-devel
 BuildRequires:  dbus-glib-devel
@@ -48,7 +45,6 @@ API documentation for libatspi.
 
 %prep
 %setup -q
-%patch0 -p1 -b .crash-on-exit
 
 %build
 %configure --with-dbus-daemondir=/bin
@@ -90,6 +86,9 @@ rm $RPM_BUILD_ROOT%{_libdir}/libatspi.la
 %{_includedir}/at-spi-2.0
 
 %changelog
+* Mon Mar 21 2011 Matthias Clasen <mclasen@redhat.com> - 1.91.92-1
+- Update to 2.91.92
+
 * Wed Mar  9 2011 Matthias Clasen <mclasen@redhat.com> - 1.91.91-2
 - Fix a crash on logout
 
