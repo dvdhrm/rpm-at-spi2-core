@@ -73,12 +73,16 @@ rm $RPM_BUILD_ROOT%{_libdir}/libatspi.la
 %{_sysconfdir}/xdg/autostart/at-spi-dbus-bus.desktop
 %{_libdir}/libatspi.so.*
 %{_libdir}/girepository-1.0/Atspi-2.0.typelib
+%{_libexecdir}/at-spi-bus-launcher
+%{_datadir}/dbus-1/services/org.a11y.Bus.service
+
 
 %files devel
 %{_libdir}/libatspi.so
 %{_datadir}/gtk-doc/html/libatspi
 %{_datadir}/gir-1.0/Atspi-2.0.gir
 %{_includedir}/at-spi-2.0
+%{_libdir}/pkgconfig/atspi-2.pc
 
 %changelog
 * Mon Mar 21 2011 Matthias Clasen <mclasen@redhat.com> - 1.91.92-1
