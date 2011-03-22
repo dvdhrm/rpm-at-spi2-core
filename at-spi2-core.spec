@@ -67,15 +67,11 @@ rm $RPM_BUILD_ROOT%{_libdir}/libatspi.la
 %files -f %{name}.lang
 %defattr(-,root,root,-)
 %doc COPYING AUTHORS README
-# %dir %{_sysconfdir}/at-spi2
-# %config(noreplace) %{_sysconfdir}/at-spi2/accessibility.conf
-# %{_sysconfdir}/xdg/autostart/at-spi-dbus-bus.desktop
-# %{_bindir}/at-spi-dbus-bus
 %{_libexecdir}/at-spi2-registryd
 %{_datadir}/dbus-1/services/org.a11y.atspi.Registry.service
 %{_sysconfdir}/at-spi2
 %{_sysconfdir}/xdg/autostart/at-spi-dbus-bus.desktop
-%{_bindir}/at-spi-dbus-bus
+%{_libexecdir}/at-spi-dbus-bus
 %{_libdir}/libatspi.so.*
 %{_libdir}/girepository-1.0/Atspi-2.0.typelib
 
