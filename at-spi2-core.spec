@@ -1,15 +1,12 @@
 Name:           at-spi2-core
-Version:        1.91.93
-Release:        2%{?dist}
+Version:        2.0.0
+Release:        1%{?dist}
 Summary:        Protocol definitions and daemon for D-Bus at-spi
 
 Group:          System Environment/Libraries
 License:        LGPLv2+
 URL:            http://www.linuxfoundation.org/en/AT-SPI_on_D-Bus
-Source0:        http://download.gnome.org/sources/at-spi2-core/1.91/%{name}-%{version}.tar.bz2
-
-# https://bugzilla.gnome.org/show_bug.cgi?id=646403
-Patch0:         endsessionresponse.patch
+Source0:        http://download.gnome.org/sources/at-spi2-core/2.0/%{name}-%{version}.tar.bz2
 
 BuildRequires:  dbus-devel
 BuildRequires:  dbus-glib-devel
@@ -48,7 +45,6 @@ API documentation for libatspi.
 
 %prep
 %setup -q
-%patch0 -p1 -b .endsessionresponse
 
 %build
 %configure --with-dbus-daemondir=/bin
@@ -89,6 +85,9 @@ rm $RPM_BUILD_ROOT%{_libdir}/libatspi.la
 %{_libdir}/pkgconfig/atspi-2.pc
 
 %changelog
+* Mon Apr  4 2011 Matthias Clasen <mclasen@redhat.com> - 2.0.0-1
+- Update to 2.0.0
+
 * Fri Apr  1 2011 Matthias Clasen <mclasen@redhat.com> - 1.91.93-2
 - Fix 30 second wait during login (#691995)
 
