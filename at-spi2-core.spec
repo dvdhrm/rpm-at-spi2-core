@@ -1,5 +1,5 @@
 Name:           at-spi2-core
-Version:        2.1.2
+Version:        2.1.4
 Release:        1%{?dist}
 Summary:        Protocol definitions and daemon for D-Bus at-spi
 
@@ -66,7 +66,6 @@ rm $RPM_BUILD_ROOT%{_libdir}/libatspi.la
 %postun -p /sbin/ldconfig
 
 %files -f %{name}.lang
-%defattr(-,root,root,-)
 %doc COPYING AUTHORS README
 %{_libexecdir}/at-spi2-registryd
 %{_datadir}/dbus-1/services/org.a11y.atspi.Registry.service
@@ -86,6 +85,9 @@ rm $RPM_BUILD_ROOT%{_libdir}/libatspi.la
 %{_libdir}/pkgconfig/atspi-2.pc
 
 %changelog
+* Mon Jul 25 2011 Matthias Clasen <mclasen@redhat.com> - 2.1.4-1
+- Update to 2.1.4
+
 * Thu Jun 16 2011 Tomas Bzatek <tbzatek@redhat.com> - 2.1.2-1
 - Update to 2.1.2
 
