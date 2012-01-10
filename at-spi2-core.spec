@@ -1,6 +1,6 @@
 Name:           at-spi2-core
 Version:        2.3.3
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Protocol definitions and daemon for D-Bus at-spi
 
 Group:          System Environment/Libraries
@@ -18,10 +18,6 @@ BuildRequires:  libXext-devel
 BuildRequires:  libXi-devel
 BuildRequires:  autoconf automake libtool
 BuildRequires:  intltool
-
-# XXX Ugly Hack
-# Needed for https://bugzilla.gnome.org/show_bug.cgi?id=640303
-BuildRequires: at-spi2-core
 
 Requires:       dbus
 
@@ -49,8 +45,8 @@ API documentation for libatspi.
 
 %build
 %configure --with-dbus-daemondir=/bin
-sed -i 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' libtool
-sed -i 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
+
+sed -i -e 's+sys_lib_dlsearch_path_spec="/lib /usr/lib+sys_lib_dlsearch_path_spec="/lib /usr/lib /lib64 /usr/lib64+' configure
 
 make %{?_smp_mflags}
 
@@ -85,6 +81,9 @@ rm $RPM_BUILD_ROOT%{_libdir}/libatspi.la
 %{_libdir}/pkgconfig/atspi-2.pc
 
 %changelog
+* Tue Jan 10 2012 Peter Robinson <pbrobinson@fedoraproject.org> - 2.3.3-2
+- Fix the rpath issue for building gobject-introspection properly as suggested from upstream
+
 * Tue Dec 20 2011 Matthias Clasen <mclasen@redhat.com> - 2.3.3-1
 - Update to 2.3.3
 
