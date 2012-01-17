@@ -1,6 +1,6 @@
 Name:           at-spi2-core
-Version:        2.3.3
-Release:        2%{?dist}
+Version:        2.3.4
+Release:        1%{?dist}
 Summary:        Protocol definitions and daemon for D-Bus at-spi
 
 Group:          System Environment/Libraries
@@ -81,6 +81,9 @@ rm $RPM_BUILD_ROOT%{_libdir}/libatspi.la
 %{_libdir}/pkgconfig/atspi-2.pc
 
 %changelog
+* Tue Jan 17 2012 Matthias Clasen <mclasen@redhat.com> - 2.3.4-1
+- Update to 2.3.4
+
 * Tue Jan 10 2012 Peter Robinson <pbrobinson@fedoraproject.org> - 2.3.3-2
 - Fix the rpath issue for building gobject-introspection properly as suggested from upstream
 
