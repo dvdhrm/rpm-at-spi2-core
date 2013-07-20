@@ -1,6 +1,6 @@
 Name:           at-spi2-core
 Version:        2.9.4
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Protocol definitions and daemon for D-Bus at-spi
 
 Group:          System Environment/Libraries
@@ -44,10 +44,8 @@ API documentation for libatspi.
 %setup -q
 
 %build
+autoreconf -v --install
 %configure --with-dbus-daemondir=/bin
-
-sed -i -e 's+sys_lib_dlsearch_path_spec="/lib /usr/lib+sys_lib_dlsearch_path_spec="/lib /usr/lib /lib64 /usr/lib64+' configure
-
 make %{?_smp_mflags}
 
 
@@ -81,6 +79,9 @@ rm $RPM_BUILD_ROOT%{_libdir}/libatspi.la
 %{_libdir}/pkgconfig/atspi-2.pc
 
 %changelog
+* Sat Jul 20 2013 Rui Matos <rmatos@redhat.com> - 2.9.4-2
+- Run autoreconf instead of a sed hack to avoid RPATH embedding
+
 * Tue Jul 16 2013 Richard Hughes <rhughes@redhat.com> - 2.9.4-1
 - Update to 2.9.4
 
