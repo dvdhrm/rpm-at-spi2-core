@@ -1,6 +1,6 @@
 Name:           at-spi2-core
-Version:        2.9.4
-Release:        3%{?dist}
+Version:        2.9.5
+Release:        1%{?dist}
 Summary:        Protocol definitions and daemon for D-Bus at-spi
 
 Group:          System Environment/Libraries
@@ -79,6 +79,9 @@ rm $RPM_BUILD_ROOT%{_libdir}/libatspi.la
 %{_libdir}/pkgconfig/atspi-2.pc
 
 %changelog
+* Fri Aug 09 2013 Kalev Lember <kalevlember@gmail.com> - 2.9.5-1
+- Update to 2.9.5
+
 * Sun Jul 28 2013 Rui Matos <rmatos@redhat.com> - 2.9.4-3
 - Pass --force to autoreconf to be sure it does what we want
 
