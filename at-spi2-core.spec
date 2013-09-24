@@ -1,12 +1,12 @@
 Name:           at-spi2-core
-Version:        2.9.92
+Version:        2.10.0
 Release:        1%{?dist}
 Summary:        Protocol definitions and daemon for D-Bus at-spi
 
 Group:          System Environment/Libraries
 License:        LGPLv2+
 URL:            http://www.linuxfoundation.org/en/AT-SPI_on_D-Bus
-Source0:        http://download.gnome.org/sources/at-spi2-core/2.9/%{name}-%{version}.tar.xz
+Source0:        http://download.gnome.org/sources/at-spi2-core/2.10/%{name}-%{version}.tar.xz
 
 BuildRequires:  dbus-devel
 BuildRequires:  dbus-glib-devel
@@ -79,6 +79,9 @@ rm $RPM_BUILD_ROOT%{_libdir}/libatspi.la
 %{_libdir}/pkgconfig/atspi-2.pc
 
 %changelog
+* Tue Sep 24 2013 Kalev Lember <kalevlember@gmail.com> - 2.10.0-1
+- Update to 2.10.0
+
 * Tue Sep 17 2013 Kalev Lember <kalevlember@gmail.com> - 2.9.92-1
 - Update to 2.9.92
 
