@@ -1,6 +1,6 @@
 Name:           at-spi2-core
 Version:        2.12.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Protocol definitions and daemon for D-Bus at-spi
 
 Group:          System Environment/Libraries
@@ -34,7 +34,7 @@ ORBIT / CORBA for its transport protocol.
 %package devel
 Summary: Development files and headers for at-spi2-core
 Group: Development/Libraries
-Requires: %{name} = %{version}-%{release}
+Requires: %{name}%{?_isa} = %{version}-%{release}
 
 %description devel
 The at-spi2-core-devel package includes the header files and
@@ -79,6 +79,9 @@ rm $RPM_BUILD_ROOT%{_libdir}/libatspi.la
 %{_libdir}/pkgconfig/atspi-2.pc
 
 %changelog
+* Sat Apr 05 2014 Kalev Lember <kalevlember@gmail.com> - 2.12.0-2
+- Tighten -devel deps
+
 * Mon Mar 24 2014 Richard Hughes <rhughes@redhat.com> - 2.12.0-1
 - Update to 2.12.0
 
