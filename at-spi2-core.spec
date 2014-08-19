@@ -1,6 +1,6 @@
 Name:           at-spi2-core
-Version:        2.13.4
-Release:        3%{?dist}
+Version:        2.13.90
+Release:        1%{?dist}
 Summary:        Protocol definitions and daemon for D-Bus at-spi
 
 Group:          System Environment/Libraries
@@ -79,6 +79,9 @@ rm $RPM_BUILD_ROOT%{_libdir}/libatspi.la
 %{_libdir}/pkgconfig/atspi-2.pc
 
 %changelog
+* Tue Aug 19 2014 Kalev Lember <kalevlember@gmail.com> - 2.13.90-1
+- Update to 2.13.90
+
 * Fri Aug 15 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.13.4-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_21_22_Mass_Rebuild
 
