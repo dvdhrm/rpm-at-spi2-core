@@ -1,12 +1,12 @@
 Name:           at-spi2-core
-Version:        2.14.1
+Version:        2.15.2
 Release:        1%{?dist}
 Summary:        Protocol definitions and daemon for D-Bus at-spi
 
 Group:          System Environment/Libraries
 License:        LGPLv2+
 URL:            http://www.linuxfoundation.org/en/AT-SPI_on_D-Bus
-Source0:        http://download.gnome.org/sources/at-spi2-core/2.14/%{name}-%{version}.tar.xz
+Source0:        http://download.gnome.org/sources/at-spi2-core/2.15/%{name}-%{version}.tar.xz
 
 BuildRequires:  dbus-devel
 BuildRequires:  dbus-glib-devel
@@ -62,12 +62,12 @@ rm $RPM_BUILD_ROOT%{_libdir}/libatspi.la
 %files -f %{name}.lang
 %doc COPYING AUTHORS README
 %{_libexecdir}/at-spi2-registryd
-%{_datadir}/dbus-1/services/org.a11y.atspi.Registry.service
 %{_sysconfdir}/at-spi2
 %{_sysconfdir}/xdg/autostart/at-spi-dbus-bus.desktop
 %{_libdir}/libatspi.so.*
 %{_libdir}/girepository-1.0/Atspi-2.0.typelib
 %{_libexecdir}/at-spi-bus-launcher
+%{_datadir}/dbus-1/accessibility-services/org.a11y.atspi.Registry.service
 %{_datadir}/dbus-1/services/org.a11y.Bus.service
 
 
@@ -79,6 +79,9 @@ rm $RPM_BUILD_ROOT%{_libdir}/libatspi.la
 %{_libdir}/pkgconfig/atspi-2.pc
 
 %changelog
+* Tue Nov 25 2014 Kalev Lember <kalevlember@gmail.com> - 2.15.2-1
+- Update to 2.15.2
+
 * Mon Nov 10 2014 Kalev Lember <kalevlember@gmail.com> - 2.14.1-1
 - Update to 2.14.1
 
