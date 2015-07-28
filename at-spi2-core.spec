@@ -60,7 +60,8 @@ rm $RPM_BUILD_ROOT%{_libdir}/libatspi.la
 %postun -p /sbin/ldconfig
 
 %files -f %{name}.lang
-%doc COPYING AUTHORS README
+%license COPYING
+%doc AUTHORS README
 %{_libexecdir}/at-spi2-registryd
 %{_sysconfdir}/at-spi2
 %{_sysconfdir}/xdg/autostart/at-spi-dbus-bus.desktop
@@ -81,6 +82,7 @@ rm $RPM_BUILD_ROOT%{_libdir}/libatspi.la
 %changelog
 * Tue Jul 28 2015 Kalev Lember <klember@redhat.com> - 2.17.1-1
 - Update to 2.17.1
+- Use license macro for COPYING
 
 * Wed Jun 17 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.16.0-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild
