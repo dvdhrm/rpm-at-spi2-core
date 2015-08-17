@@ -50,7 +50,7 @@ make %{?_smp_mflags}
 
 
 %install
-make install DESTDIR=$RPM_BUILD_ROOT
+%make_install
 
 %{find_lang} %{name}
 
@@ -82,6 +82,7 @@ rm $RPM_BUILD_ROOT%{_libdir}/libatspi.la
 %changelog
 * Mon Aug 17 2015 Kalev Lember <klember@redhat.com> - 2.17.90-1
 - Update to 2.17.90
+- Use make_install macro
 
 * Tue Jul 28 2015 Kalev Lember <klember@redhat.com> - 2.17.1-1
 - Update to 2.17.1
