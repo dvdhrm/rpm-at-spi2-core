@@ -1,12 +1,12 @@
 Name:           at-spi2-core
-Version:        2.18.1
+Version:        2.19.1
 Release:        1%{?dist}
 Summary:        Protocol definitions and daemon for D-Bus at-spi
 
 Group:          System Environment/Libraries
 License:        LGPLv2+
 URL:            http://www.linuxfoundation.org/en/AT-SPI_on_D-Bus
-Source0:        http://download.gnome.org/sources/at-spi2-core/2.18/%{name}-%{version}.tar.xz
+Source0:        http://download.gnome.org/sources/at-spi2-core/2.19/%{name}-%{version}.tar.xz
 
 BuildRequires:  dbus-devel
 BuildRequires:  dbus-glib-devel
@@ -18,6 +18,7 @@ BuildRequires:  libXext-devel
 BuildRequires:  libXi-devel
 BuildRequires:  autoconf automake libtool
 BuildRequires:  intltool
+BuildRequires:  systemd
 
 Requires:       dbus
 
@@ -70,6 +71,7 @@ rm $RPM_BUILD_ROOT%{_libdir}/libatspi.la
 %{_libexecdir}/at-spi-bus-launcher
 %{_datadir}/dbus-1/accessibility-services/org.a11y.atspi.Registry.service
 %{_datadir}/dbus-1/services/org.a11y.Bus.service
+%{_userunitdir}/at-spi-dbus-bus.service
 
 
 %files devel
@@ -80,6 +82,9 @@ rm $RPM_BUILD_ROOT%{_libdir}/libatspi.la
 %{_libdir}/pkgconfig/atspi-2.pc
 
 %changelog
+* Wed Oct 28 2015 Kalev Lember <klember@redhat.com> - 2.19.1-1
+- Update to 2.19.1
+
 * Mon Oct 12 2015 Kalev Lember <klember@redhat.com> - 2.18.1-1
 - Update to 2.18.1
 
