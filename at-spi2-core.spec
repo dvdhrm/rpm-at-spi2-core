@@ -64,7 +64,8 @@ rm $RPM_BUILD_ROOT%{_libdir}/libatspi.la
 %license COPYING
 %doc AUTHORS README
 %{_libexecdir}/at-spi2-registryd
-%{_sysconfdir}/at-spi2
+%dir %{_datadir}/defaults/at-spi2
+%{_datadir}/defaults/at-spi2/accessibility.conf
 %{_sysconfdir}/xdg/autostart/at-spi-dbus-bus.desktop
 %{_libdir}/libatspi.so.*
 %{_libdir}/girepository-1.0/Atspi-2.0.typelib
