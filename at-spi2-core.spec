@@ -289,7 +289,7 @@ rm $RPM_BUILD_ROOT%{_libdir}/libatspi.la
 * Wed Mar 21 2012 Kalev Lember <kalevlember@gmail.com> - 2.3.92-1
 - Update to 2.3.92
 
-* Mon Mar  6 2012 Matthias Clasen <mclasen@redhat.com> - 2.3.91-1
+* Mon Mar  5 2012 Matthias Clasen <mclasen@redhat.com> - 2.3.91-1
 - Update to 2.3.91
 
 * Sat Feb 25 2012 Matthias Clasen <mclasen@redhat.com> - 2.3.90-1
@@ -430,11 +430,11 @@ rm $RPM_BUILD_ROOT%{_libdir}/libatspi.la
 * Wed Jan 20 2010 Matthias Clasen <mlasen@redhat.com> - 0.1.5-2
 - Specify the right location for the dbus daemon
 
-* Sun Jan 16 2010 Matthias Clasen <mlasen@redhat.com> - 0.1.5-1
+* Sun Jan 17 2010 Matthias Clasen <mlasen@redhat.com> - 0.1.5-1
 - Update to 0.1.5
 
 * Tue Dec 22 2009 Matthias Clasen <mlasen@redhat.com> - 0.1.4-1
 - Update to 0.1.4
 
-* Sat Dec  4 2009 Matthias Clasen <mlasen@redhat.com> - 0.1.3-1
+* Fri Dec  4 2009 Matthias Clasen <mlasen@redhat.com> - 0.1.3-1
 - Initial packaging
