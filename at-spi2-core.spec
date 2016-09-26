@@ -3,7 +3,6 @@ Version:        2.22.0
 Release:        1%{?dist}
 Summary:        Protocol definitions and daemon for D-Bus at-spi
 
-Group:          System Environment/Libraries
 License:        LGPLv2+
 URL:            http://www.linuxfoundation.org/en/AT-SPI_on_D-Bus
 Source0:        http://download.gnome.org/sources/at-spi2-core/2.22/%{name}-%{version}.tar.xz
@@ -34,7 +33,6 @@ ORBIT / CORBA for its transport protocol.
 
 %package devel
 Summary: Development files and headers for at-spi2-core
-Group: Development/Libraries
 Requires: %{name}%{?_isa} = %{version}-%{release}
 
 %description devel
@@ -85,6 +83,7 @@ rm $RPM_BUILD_ROOT%{_libdir}/libatspi.la
 %changelog
 * Mon Sep 26 2016 Kalev Lember <klember@redhat.com> - 2.22.0-1
 - Update to 2.22.0
+- Don't set group tags
 
 * Wed Jul 20 2016 Richard Hughes <rhughes@redhat.com> - 2.21.4-1
 - Update to 2.21.4
