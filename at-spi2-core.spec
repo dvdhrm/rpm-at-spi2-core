@@ -15,6 +15,7 @@ BuildRequires:  libXtst-devel
 BuildRequires:  libXevie-devel
 BuildRequires:  libXext-devel
 BuildRequires:  libXi-devel
+BuildRequires:  libxkbcommon-x11-devel
 BuildRequires:  autoconf automake libtool
 BuildRequires:  intltool
 BuildRequires:  systemd
