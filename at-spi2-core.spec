@@ -1,6 +1,6 @@
 Name:           at-spi2-core
 Version:        2.25.4
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Protocol definitions and daemon for D-Bus at-spi
 
 License:        LGPLv2+
@@ -63,10 +63,12 @@ rm $RPM_BUILD_ROOT%{_libdir}/libatspi.la
 %license COPYING
 %doc AUTHORS README
 %{_libexecdir}/at-spi2-registryd
+%dir %{_datadir}/defaults
 %dir %{_datadir}/defaults/at-spi2
 %{_datadir}/defaults/at-spi2/accessibility.conf
 %{_sysconfdir}/xdg/autostart/at-spi-dbus-bus.desktop
 %{_libdir}/libatspi.so.*
+%dir %{_libdir}/girepository-1.0
 %{_libdir}/girepository-1.0/Atspi-2.0.typelib
 %{_libexecdir}/at-spi-bus-launcher
 %{_datadir}/dbus-1/accessibility-services/org.a11y.atspi.Registry.service
@@ -82,6 +84,9 @@ rm $RPM_BUILD_ROOT%{_libdir}/libatspi.la
 %{_libdir}/pkgconfig/atspi-2.pc
 
 %changelog
+* Mon Aug 14 2017 Ville Skyttä <ville.skytta@iki.fi> - 2.25.4-4
+- Own %%{_libdir}/girepository-1.0 and %%{_datadir}/defaults dirs
+
 * Wed Aug 02 2017 Fedora Release Engineering <releng@fedoraproject.org> - 2.25.4-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Binutils_Mass_Rebuild
 
