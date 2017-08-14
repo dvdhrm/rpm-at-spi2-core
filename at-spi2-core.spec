@@ -79,13 +79,14 @@ rm $RPM_BUILD_ROOT%{_libdir}/libatspi.la
 %files devel
 %{_libdir}/libatspi.so
 %{_datadir}/gtk-doc/html/libatspi
+%dir %{_datadir}/gir-1.0
 %{_datadir}/gir-1.0/Atspi-2.0.gir
 %{_includedir}/at-spi-2.0
 %{_libdir}/pkgconfig/atspi-2.pc
 
 %changelog
 * Mon Aug 14 2017 Ville Skyttä <ville.skytta@iki.fi> - 2.25.4-4
-- Own %%{_libdir}/girepository-1.0 and %%{_datadir}/defaults dirs
+- Own %%{_libdir}/girepository-1.0 and %%{_datadir}/{defaults,gir-1.0} dirs
 
 * Wed Aug 02 2017 Fedora Release Engineering <releng@fedoraproject.org> - 2.25.4-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Binutils_Mass_Rebuild
