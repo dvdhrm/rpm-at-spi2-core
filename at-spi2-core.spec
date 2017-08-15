@@ -1,6 +1,6 @@
 Name:           at-spi2-core
-Version:        2.25.4
-Release:        4%{?dist}
+Version:        2.25.90
+Release:        1%{?dist}
 Summary:        Protocol definitions and daemon for D-Bus at-spi
 
 License:        LGPLv2+
@@ -85,6 +85,9 @@ rm $RPM_BUILD_ROOT%{_libdir}/libatspi.la
 %{_libdir}/pkgconfig/atspi-2.pc
 
 %changelog
+* Tue Aug 15 2017 Kalev Lember <klember@redhat.com> - 2.25.90-1
+- Update to 2.25.90
+
 * Mon Aug 14 2017 Ville Skyttä <ville.skytta@iki.fi> - 2.25.4-4
 - Own %%{_libdir}/girepository-1.0 and %%{_datadir}/{defaults,gir-1.0} dirs
 
