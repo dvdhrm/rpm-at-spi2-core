@@ -1,5 +1,5 @@
 Name:           at-spi2-core
-Version:        2.26.0
+Version:        2.26.2
 Release:        1%{?dist}
 Summary:        Protocol definitions and daemon for D-Bus at-spi
 
@@ -15,7 +15,6 @@ BuildRequires:  libXtst-devel
 BuildRequires:  libXevie-devel
 BuildRequires:  libXext-devel
 BuildRequires:  libXi-devel
-BuildRequires:  libxkbcommon-x11-devel
 BuildRequires:  autoconf automake libtool
 BuildRequires:  intltool
 BuildRequires:  systemd
@@ -85,6 +84,9 @@ rm $RPM_BUILD_ROOT%{_libdir}/libatspi.la
 %{_libdir}/pkgconfig/atspi-2.pc
 
 %changelog
+* Wed Nov 01 2017 Kalev Lember <klember@redhat.com> - 2.26.2-1
+- Update to 2.26.2
+
 * Wed Sep 13 2017 Kalev Lember <klember@redhat.com> - 2.26.0-1
 - Update to 2.26.0
 
