@@ -1,22 +1,23 @@
 Name:           at-spi2-core
-Version:        2.26.2
+Version:        2.27.1
 Release:        1%{?dist}
 Summary:        Protocol definitions and daemon for D-Bus at-spi
 
 License:        LGPLv2+
 URL:            http://www.linuxfoundation.org/en/AT-SPI_on_D-Bus
-Source0:        http://download.gnome.org/sources/at-spi2-core/2.26/%{name}-%{version}.tar.xz
+Source0:        http://download.gnome.org/sources/at-spi2-core/2.27/%{name}-%{version}.tar.xz
 
 BuildRequires:  dbus-devel
 BuildRequires:  dbus-glib-devel
+BuildRequires:  gettext
 BuildRequires:  glib2-devel
 BuildRequires:  gobject-introspection-devel
+BuildRequires:  gtk-doc
 BuildRequires:  libXtst-devel
 BuildRequires:  libXevie-devel
 BuildRequires:  libXext-devel
 BuildRequires:  libXi-devel
-BuildRequires:  autoconf automake libtool
-BuildRequires:  intltool
+BuildRequires:  meson
 BuildRequires:  systemd
 
 Requires:       dbus
@@ -43,17 +44,13 @@ API documentation for libatspi.
 %setup -q
 
 %build
-autoreconf -v --install --force
-%configure --with-dbus-daemondir=/bin
-make %{?_smp_mflags}
-
+%meson -Denable_docs=true
+%meson_build
 
 %install
-%make_install
+%meson_install
 
 %{find_lang} %{name}
-
-rm $RPM_BUILD_ROOT%{_libdir}/libatspi.la
 
 %post -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
@@ -84,6 +81,9 @@ rm $RPM_BUILD_ROOT%{_libdir}/libatspi.la
 %{_libdir}/pkgconfig/atspi-2.pc
 
 %changelog
+* Tue Dec 19 2017 Kalev Lember <klember@redhat.com> - 2.27.1-1
+- Update to 2.27.1
+
 * Wed Nov 01 2017 Kalev Lember <klember@redhat.com> - 2.26.2-1
 - Update to 2.26.2
 
