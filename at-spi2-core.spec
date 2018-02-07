@@ -1,6 +1,6 @@
 Name:           at-spi2-core
 Version:        2.27.1
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Protocol definitions and daemon for D-Bus at-spi
 
 License:        LGPLv2+
@@ -78,6 +78,9 @@ API documentation for libatspi.
 %{_libdir}/pkgconfig/atspi-2.pc
 
 %changelog
+* Wed Feb 07 2018 Fedora Release Engineering <releng@fedoraproject.org> - 2.27.1-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
+
 * Tue Dec 19 2017 Kalev Lember <klember@redhat.com> - 2.27.1-2
 - Drop unused buildrequires
 
