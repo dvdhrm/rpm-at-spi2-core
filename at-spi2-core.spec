@@ -1,11 +1,13 @@
 Name:           at-spi2-core
 Version:        2.28.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Protocol definitions and daemon for D-Bus at-spi
 
 License:        LGPLv2+
 URL:            http://www.linuxfoundation.org/en/AT-SPI_on_D-Bus
 Source0:        http://download.gnome.org/sources/at-spi2-core/2.28/%{name}-%{version}.tar.xz
+Patch0:         https://github.com/GNOME/at-spi2-core/commit/09e012860a6e1e074ac1950a4afc3d4131d046d9.patch
+Patch1:         0001-bus-launch-use-__linux__-over-__linux.patch
 
 BuildRequires:  dbus-devel
 BuildRequires:  gettext
@@ -38,10 +40,10 @@ The at-spi2-core-devel package includes the header files and
 API documentation for libatspi.
 
 %prep
-%setup -q
+%autosetup -p1
 
 %build
-%meson -Denable_docs=true
+%meson -Denable_docs=true -Ddefault_bus=dbus-broker -Ddbus_daemon=/usr/bin/dbus-daemon -Ddbus_broker=/usr/bin/dbus-broker-launch
 %meson_build
 
 %install
@@ -78,6 +80,9 @@ API documentation for libatspi.
 %{_libdir}/pkgconfig/atspi-2.pc
 
 %changelog
+* Fri Aug 10 2018 David Herrmann <dh.herrmann@gmail.com> - 2.28.0-3
+- Add support for dbus-broker alongside dbus-daemon
+
 * Thu Jul 12 2018 Fedora Release Engineering <releng@fedoraproject.org> - 2.28.0-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
 

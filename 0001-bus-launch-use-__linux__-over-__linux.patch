@@ -1,0 +1,41 @@
+From 85dedf4125d2107a4b095bbafe482bf6ecfd06f1 Mon Sep 17 00:00:00 2001
+From: David Herrmann <dh.herrmann@gmail.com>
+Date: Fri, 10 Aug 2018 16:35:31 +0200
+Subject: [PATCH] bus-launch: use __linux__ over __linux
+
+The canonical way to check for linux support is '__linux__', not
+'__linux'. Particularly, on ppc64le '__linux' is not defined and the
+build will fail.
+
+For reference, see:
+
+    https://sourceforge.net/p/predef/wiki/OperatingSystems/
+---
+ bus/at-spi-bus-launcher.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/bus/at-spi-bus-launcher.c b/bus/at-spi-bus-launcher.c
+index 8aeb490..8fa566f 100644
+--- a/bus/at-spi-bus-launcher.c
++++ b/bus/at-spi-bus-launcher.c
+@@ -25,7 +25,7 @@
+ #include <unistd.h>
+ #include <string.h>
+ #include <signal.h>
+-#ifdef __linux
++#ifdef __linux__
+ #include <sys/prctl.h>
+ #include <sys/socket.h>
+ #include <sys/un.h>
+@@ -232,7 +232,7 @@ setup_bus_child_daemon (gpointer data)
+   close (app->pipefd[1]);
+ 
+   /* On Linux, tell the bus process to exit if this process goes away */
+-#ifdef __linux
++#ifdef __linux__
+   prctl (PR_SET_PDEATHSIG, 15);
+ #endif  
+ }
+-- 
+2.18.0
+
